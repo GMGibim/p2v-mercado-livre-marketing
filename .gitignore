@@ -1,0 +1,15 @@
+# Secrets — never commit API keys
+.env
+.env.*
+!.env.example
+
+node_modules/
+
+# Per-product media stays local: listing photos (brand imagery), generated videos,
+# voice takes and Pixabay tracks (their license forbids redistributing the audio on its own).
+products/*/refs/
+products/*/out/
+products/*/cache/
+*.mp3
+*.mp4
+*.wav

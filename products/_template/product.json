@@ -1,0 +1,28 @@
+{
+  "name": "Marca Modelo",
+  "title": "Título exato do anúncio no Mercado Livre",
+  "images": [
+    { "file": "produto.png", "source": "https://http2.mlstatic.com/...-foto-principal-fundo-branco.webp" },
+    { "file": "detalhe.png", "source": "https://http2.mlstatic.com/...-foto-de-detalhe.webp", "crop": { "left": 0, "top": 0, "width": 1200, "height": 700 } }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": ["produto.png", "detalhe.png"],
+    "prompt": "Vertical 9:16 product commercial for the <produto> shown in the reference images.\nKeep the product exactly as in the references: <cor, material, logo, botões>. Do not add or change parts.\nShot 1 (0-3s): <produto sozinho, fundo de estúdio, câmera aproximando>.\nShot 2 (3-6s): <macro do diferencial principal>.\nShot 3 (6-10s): <produto em uso, mecânica correta>.\nNo on-screen text, no captions, no subtitles."
+  },
+  "reshoots": {
+    "uso": {
+      "shot": 3,
+      "duration": 4,
+      "refs": ["produto.png"],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts.\n<descreva só este plano, com orientação do produto e mecânica de uso explícitas>.\nNo on-screen text, no captions."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "<Gancho com o nome do produto.> <Pergunta ou ponte para o diferencial?> <Diferencial.> <Benefício no uso.>",
+    "musicVolume": 0.18
+  }
+}

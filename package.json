@@ -1,0 +1,26 @@
+{
+  "name": "p2v-mercado-livre-marketing",
+  "version": "1.0.0",
+  "description": "P2V Mercado Livre Marketing: gera vídeos curtos (clips 9:16) de produtos a partir das fotos do anúncio, com voz, legenda e música.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "refs": "tsx --env-file-if-exists=.env.local src/cli/refs.ts",
+    "video": "tsx --env-file-if-exists=.env.local src/cli/video.ts",
+    "reshoot": "tsx --env-file-if-exists=.env.local src/cli/reshoot.ts",
+    "audio": "tsx --env-file-if-exists=.env.local src/cli/audio.ts",
+    "frame": "tsx --env-file-if-exists=.env.local src/cli/tools.ts frame",
+    "sheet": "tsx --env-file-if-exists=.env.local src/cli/tools.ts sheet",
+    "voices": "tsx --env-file-if-exists=.env.local src/cli/tools.ts voices",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@higgsfield/client": "^0.2.6",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  }
+}

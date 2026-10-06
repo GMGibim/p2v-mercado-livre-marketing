@@ -1,0 +1,47 @@
+{
+  "name": "Philips MG3927",
+  "title": "Aparador De Pelos Philips Multigroom 9 Em 1 Mg3927/15 Bivolt",
+  "images": [
+    {
+      "file": "kit.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_614024-MLA102914997159_122025-F-aparador-de-pelos-philips-multigroom-9-em-1-mg392715-bivolt.webp"
+    },
+    {
+      "file": "aparador.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_752711-MLA102404632436_122025-F-aparador-de-pelos-philips-multigroom-9-em-1-mg392715-bivolt.webp"
+    },
+    {
+      "file": "lamina.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_848891-MLA102405305890_122025-F-aparador-de-pelos-philips-multigroom-9-em-1-mg392715-bivolt.webp",
+      "crop": { "left": 0, "top": 0, "width": 1200, "height": 700 }
+    },
+    {
+      "file": "cabecote.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_848891-MLA102405305890_122025-F-aparador-de-pelos-philips-multigroom-9-em-1-mg392715-bivolt.webp",
+      "crop": { "left": 800, "top": 785, "width": 320, "height": 340 }
+    },
+    {
+      "file": "homem.png"
+    }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": ["kit.png", "aparador.png", "lamina.png", "cabecote.png"],
+    "prompt": "Vertical 9:16 product commercial for the grooming trimmer shown in the reference images.\nKeep the trimmer exactly as in the references: matte black body, mint-green blade guard, small PHILIPS wordmark, round power button. Do not add or change parts.\nShot 1 (0-3s): the trimmer standing upright on a pale sage-green studio background, slow camera push-in, soft studio light.\nShot 2 (3-6s): extreme macro of the stainless steel blade teeth with a soft green light glow, camera gliding slowly along the blade.\nShot 3 (6-10s): a bearded man in his 30s, wearing a grey sweater, trims his beard with the trimmer in front of a bathroom mirror with green tiles, calm and confident.\nNo on-screen text, no captions, no subtitles."
+  },
+  "reshoots": {
+    "espelho": {
+      "shot": 3,
+      "duration": 4,
+      "refs": ["homem.png", "kit.png", "aparador.png", "cabecote.png"],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts.\nThe bearded man from the portrait reference, wearing a grey sweater, stands in front of a bathroom mirror with green tiles and trims his beard with the matte black grooming trimmer shown in the product reference images.\nTrimmer orientation: the front of the trimmer, the side with the PHILIPS logo, the textured grip panel, the round power button and the mint-green face of the blade head, faces his skin and is pressed against his neck, so it is NOT visible to the viewer. The viewer and the camera see only the plain back of the trimmer and the back of the blade head.\nThe blade has no light and no glow: plain metal teeth, no green light anywhere on the trimmer.\nCorrect trimming technique: the row of metal blade teeth lies flat against the skin of his neck, teeth pointing upward, and he slides it slowly upward from the neck to the jawline, against the direction of hair growth, head tilted slightly up and to the side. Then one more slow upward stroke along the cheek. The cutting edge always leads the motion; the side of the trimmer never touches the face.\nRealistic hand, skin and grip physics, soft natural bathroom light. No falling hair, no on-screen text, no captions."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Philips Multigroom: nove em um. O segredo? Lâminas autoafiáveis, de pontas arredondadas. Conforto pra aparar no comprimento que você quiser.",
+    "musicVolume": 0.18
+  }
+}
