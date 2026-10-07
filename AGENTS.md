@@ -54,7 +54,10 @@ O ajuste vai no nome do arquivo (`... vN - espelho sem luz verde.mp4`). O plano 
 Dicas que funcionaram (mais em `docs/licoes-aprendidas.md`):
 - Para manter **a mesma pessoa** entre versões: `npm run frame -- <slug> "<vídeo>" <segundos> pessoa.png --crop w:h:x:y` e use `pessoa.png` como primeira referência ("the man from the portrait reference").
 - **Orientação do produto** precisa ser explícita e sem ambiguidade: diga qual face encosta na pele e qual face a câmera vê. Confirme com o usuário antes — inverter isso custou uma versão.
-- **Mecânica de uso:** descreva contato, direção e movimento (ex.: "blade teeth flat against the skin, upward strokes, cutting edge leads").
+- **Mecânica de uso:** descreva contato, direção e movimento (ex.: "blade teeth flat against the skin, upward strokes, cutting edge leads"). Para barbear/aparar, peça **passadas longas e contínuas** (nunca "toques" ou "movimentos curtos", que viram retoque de maquiagem) e use clipes de 5 s para caber duas passadas.
+- **Peças que vêm juntas no produto real** (ex.: a lâmina vem presa à base de plástico) precisam ser ditas no prompt ("one single unit, never separate") e conferidas nas fotos de detalhe. Se o modelo errar um **detalhe pequeno** (encaixe, soquete, logo), peça ao usuário um **print do detalhe real** e use como primeira referência: resolve em uma tentativa.
+- **Fotos de avaliação de clientes** mostram o produto real, mas trazem texto da caixa/QR code: recorte só o produto.
+- **Produto que é só peça de reposição** (lâmina, refil): o herói mostra a embalagem; o aparelho só aparece como contexto, e a fala diz "de reposição" e só afirma compatibilidade que esteja na descrição do anúncio.
 
 ### 5b. Quando o prompt não acerta a pose: quadros fixos (técnica que resolveu o produto 2)
 Se o modelo erra a pose do produto em uso 2 vezes seguidas, **pare de ajustar o prompt**. Peça ao usuário **fotos de referência da pose** (a pessoa fixa segurando o produto do jeito certo, em cada ângulo) e anime **entre elas**:

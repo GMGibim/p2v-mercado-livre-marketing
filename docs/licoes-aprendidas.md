@@ -53,5 +53,21 @@ Problemas reais do primeiro produto e o que resolveu. Leia antes de escrever pro
 
 Custos do produto 2 (estimativa): Wan base + tech ≈ US$ 1,1 · Kling (barbear perfil 0,28 + final 0,21 + transições, a última 0,50) ≈ US$ 1,5 · edições de imagem ≈ US$ 0,25 · tentativas descartadas ≈ US$ 3. Total próximo de US$ 6.
 
+## Produto 3: Philips OneBlade QP220 (lâmina de reposição) — o que mudou
+
+| Problema | Solução |
+|---|---|
+| O produto vendido é só a **lâmina de reposição**; o aparelho não vem na caixa | Herói e planos de detalhe mostram a embalagem e as lâminas; o aparelho só aparece como contexto de uso. A fala diz "lâmina de reposição" e "compatível com todos os cabos OneBlade" (isso está na descrição do anúncio; conferir antes de afirmar). |
+| "Dura até 4 meses" aparece com asterisco | A descrição amarra a condição ("2 vezes por semana, resultados podem variar"). Fora da fala e da legenda. |
+| Fotos do anúncio com mão e rosto reais (troca da lâmina, homem barbudo em oval) | Usadas só como referência de **forma**; a pessoa vem do Jorge fixo. Foto de avaliação de cliente serve de referência do produto real, mas traz texto da caixa e QR code: recortar só a parte do produto, senão o modelo copia o texto. |
+| Barbear parecendo "retoque de maquiagem" (toquinhos curtos e repetidos) | Descrever **passadas longas e contínuas**: "uma passada lenta da orelha até o canto da mandíbula, levanta, uma segunda passada mais abaixo, uma longa pelo pescoço; a lâmina fica em contato durante cada passada, nunca toques". Clipe de 5 s para caber duas passadas. |
+| O modelo desenhou a base de plástico da lâmina solta sobre o cabo | No produto real a **base preta vem presa à lâmina** (colar redondo e duas hastes longas). Dizer no prompt "ONE single unit, the base is part of the blade and never separate" e usar a foto das unidades na bandeja (recorte sem texto) como referência. A foto da mão com a peça solta induzia o erro, então saiu das referências. |
+| O encaixe do cabo vazio saiu largo, com furo redondo e duas fendas, diferente do real | Mandar **print do detalhe real** (abertura estreita, pino hexagonal central, fendas em "X", furinhos nos cantos, plaquinha com triângulo) como primeira referência e descrever o formato no prompt. Resolveu na primeira tentativa. |
+| Final do clipe com deriva de identidade (olhos fechados, cabelo mais volumoso) | Acontece no fim de clipes de 3 s sem quadro final: o prompt de "gesto final" solta o rosto. Se aparecer, regenerar só esse plano pedindo cabeça reta e cabelo igual. Neste produto a reação final do Jorge foi aprovada como estava. |
+| Detecção de corte não achou planos no Wan (nenhum corte detectado) | Os planos do Wan eram parecidos (fundo único). Use `reshoot --start/--end` com os tempos do roteiro (ex.: `--start 6 --end 10`). |
+| Verificação de segurança do ambiente falhou várias vezes seguidas e bloqueou o terminal | Falha passageira do ambiente, não do comando. Fazer o que não depende de comando (editar `product.json`), tentar de novo mais tarde e, se persistir, dar ao usuário os comandos prontos. |
+
+Custo do produto 3 (estimativa, Kling com a faixa observada): Wan base US$ 0,84 + 4 trocas/ajustes de 4 s no Wan (~US$ 1,4) + Kling uso e final (~US$ 0,9–1,5) ≈ US$ 3,2–3,8.
+
 ## Custos do produto 1 (tabela)
 Seedance de teste ~US$ 2,31 (descartado: 5–10× mais caro) · Wan v1 US$ 0,84 · Kling (falha + timeout) ~US$ 0,42 · 3 regravações de 4 s ~US$ 1,02. Total ≈ US$ 4,60.

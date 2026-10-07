@@ -1,0 +1,98 @@
+{
+  "name": "Philips OneBlade QP220",
+  "title": "Lâmina Dupla Oneblade Philips - Qp220/51 - Embalagem com 2 Laminas",
+  "images": [
+    {
+      "file": "pacote.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_716261-MLA99428009446_112025-F.webp"
+    },
+    {
+      "file": "laminas-duplas.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_781497-MLA99428486266_112025-F.webp"
+    },
+    {
+      "file": "lamina-no-cabo.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_762508-MLA99911173859_112025-F.webp"
+    },
+    {
+      "file": "lamina-aco.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_992037-MLA99428009434_112025-F.webp",
+      "crop": {
+        "left": 0,
+        "top": 400,
+        "width": 1200,
+        "height": 800
+      }
+    },
+    {
+      "file": "troca-lamina.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_883109-MLA99912316145_112025-F.webp"
+    },
+    {
+      "file": "modelo-barbudo.png",
+      "source": "../_shared/modelo-barbudo.png"
+    },
+    {
+      "file": "lamina-com-base.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_938515-MLA83859981680_042025-F.webp",
+      "crop": {
+        "left": 440,
+        "top": 552,
+        "width": 460,
+        "height": 200
+      }
+    },
+    {
+      "file": "encaixe-real.png",
+      "source": "refs/raw/_encaixe_recorte.png"
+    },
+    {
+      "file": "encaixe-detalhe.png",
+      "source": "refs/raw/encaixe_detalhe_print.png"
+    }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": [
+      "pacote.png",
+      "laminas-duplas.png",
+      "lamina-no-cabo.png",
+      "lamina-aco.png",
+      "troca-lamina.png"
+    ],
+    "prompt": "Vertical 9:16 product commercial for the OneBlade replacement blade pack shown in the reference images.\nKeep the product exactly as in the references: each replacement blade is a flat rectangular stainless steel cutting blade with a diamond-lattice mesh pattern, lime-green plastic end caps and a dark grey clip at the back; the retail box is lime green with the Philips OneBlade logo. Two blades in the pack. Do not add or change parts.\nShot 1 (0-3s): the retail box standing beside the two blades on a clean light-green studio background, slow camera push-in, soft studio light.\nShot 2 (3-6s): extreme macro of one blade's steel mesh with a soft light glint sweeping across it, slow camera glide.\nShot 3 (6-10s): close-up of only a hand and the lime green and dark grey OneBlade handle: the hand snaps one of the blades onto the handle with a clean click. No face, no other person.\nNo on-screen text, no captions, no subtitles."
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Lâmina de reposição Philips OneBlade, original. O segredo? Lâmina dupla face, que raspa, apara e contorna. Compatível com todos os cabos OneBlade.",
+    "musicVolume": 0.18
+  },
+  "clips": {
+    "uso_contorno": {
+      "first": "../_shared/jorge/oneblade-3-9x16.png",
+      "last": "../_shared/jorge/oneblade-4-9x16.png",
+      "duration": 5,
+      "prompt": "Front view, the camera stays almost static. The man shaves the way a person really shaves, with long, slow, continuous strokes, never short dabs or taps: with the OneBlade in his right hand and the blade flat against his skin, he slides it in one smooth unbroken motion from beside his ear down his cheek to the corner of his jaw, lifts it, brings it back up and makes a second long continuous stroke slightly lower along the jawline, then a long stroke down his neck. The hand moves in wide steady sweeps, the blade always stays in contact with the skin during each stroke. His mustache is untouched. Natural, candid, unretouched look: visible skin texture and pores, slight natural asymmetry, a few flyaway hairs, not a polished render, not airbrushed. Realistic hand, skin and grip physics, steady natural light. No text."
+    },
+    "final_sobrancelha": {
+      "first": "../_shared/jorge/oneblade-4-9x16.png",
+      "duration": 3,
+      "prompt": "Front view, camera almost static. The man looks at the camera with his chin raised, the OneBlade resting against his neck. He slowly lowers the OneBlade away from his neck, his neck clean and smooth, then looks at himself and clearly raises both eyebrows in a playful, satisfied, confident way with a slight smile. Mustache untouched. Natural, candid, unretouched look: visible skin texture and pores, slight natural asymmetry, a few flyaway hairs, not a polished render, not airbrushed. Realistic skin and hand physics, steady natural light. No text."
+    }
+  },
+  "reshoots": {
+    "troca": {
+      "shot": 3,
+      "duration": 4,
+      "refs": [
+        "encaixe-real.png",
+        "encaixe-detalhe.png",
+        "lamina-com-base.png",
+        "lamina-no-cabo.png"
+      ],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts. Extreme close-up of only hands and the lime-green and dark-grey OneBlade handle, in front of a clean light-green studio background.\nThe first reference image shows exactly how the real handle top and the blade unit look: the top of the handle is a narrow dark-grey rounded-rectangle opening with a small grey hexagonal post in the center, an X-shaped pattern of thin slots around it and tiny round holes in the corners, sitting just above the lime-green plate with the triangle eject symbol. Reproduce this socket exactly, no wide opening, no big round hole.\nThe replacement blade is ONE single unit: a flat stainless steel mesh blade with lime-green end caps, permanently attached to a dark-grey plastic base underneath it that has a round collar and two long prongs pointing down; the base is part of the blade and always stays attached to it.\nThe handle is held upright with the empty socket on top. One hand brings the whole blade unit above the handle with the prongs pointing down, lowers it straight onto the socket so the two prongs slide into it, and presses down with a clean click; the hand lets go and the blade unit now sits snugly on top of the handle.\nNo face, no other person. No on-screen text, no captions."
+    }
+  }
+}
