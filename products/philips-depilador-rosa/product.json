@@ -1,0 +1,53 @@
+{
+  "name": "Philips Depilador Rosa",
+  "title": "PENDENTE - título exato do anúncio",
+  "images": [
+    {
+      "file": "frente.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_776474-MLA85503831924_062025-F.webp"
+    },
+    {
+      "file": "pegada-canela.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_829707-MLA110853806363_042026-F.webp",
+      "crop": {
+        "left": 250,
+        "top": 450,
+        "width": 800,
+        "height": 750
+      }
+    },
+    {
+      "file": "angulo.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_749101-MLA89497135716_082025-F.webp",
+      "crop": {
+        "left": 640,
+        "top": 400,
+        "width": 520,
+        "height": 640
+      }
+    }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": [
+      "frente.png",
+      "pegada-canela.png",
+      "angulo.png"
+    ],
+    "prompt": "Vertical 9:16 product commercial for the pink corded epilator shown in the reference images.\nKeep the product exactly as in the references: a compact rounded pink epilator with a glossy pink body, the PHILIPS wordmark in grey on the front, a rounded pink button with a dotted grip texture, two tiny indicator dots beside it, a silver epilating head with metal discs at the top, and a white power cord with a white plug-end switch at the bottom. Do not add or change parts.\nShot 1 (0-3s): the pink epilator standing upright on a soft cream studio background with gentle warm light, slow camera push-in, the white cord hanging below it.\nShot 2 (3-5s): extreme macro of the silver epilating head with its metal discs, slow camera glide across it, no text.\nShot 3 (5-10s): a young blonde woman in her late 20s with shoulder-length wavy hair sits on the edge of a bed in a bright, airy bedroom with soft daylight, wearing casual short pajama shorts, only her lower legs and the hand holding the epilator are in frame, her face is not shown. She holds the pink epilator in her right hand with the silver epilating head pressed flat against her shin and the pink body with the PHILIPS wordmark facing the camera, the white cord trailing down to the floor. She glides it slowly in long, smooth, continuous strokes upward along her shin, from above the ankle toward the middle of the shin, against the direction of hair growth, lifting it and repeating one more long stroke. Calm, relaxed, natural movements, realistic hand and skin physics, natural skin texture.\nNo on-screen text, no captions, no subtitles."
+  },
+  "clips": {
+    "depilar_canela": {
+      "first": "refs/pose_usuario3_9x16.png",
+      "duration": 5,
+      "prompt": "The young blonde woman sits on the edge of the bed in the bright bedroom, looking down at her shin, and epilates it. Keep the pink epilator exactly as in the first frame: seen from its narrow side, it points horizontally straight into her shin, its silver epilating head pressed against the skin and its body sticking out to the right at exactly 90 degrees to the leg, held by her hand from above; the leg is vertical and the device is a horizontal bar touching it. She moves the whole epilator slowly and smoothly UPWARD along the length of her shin, from just above the ankle towards the middle of the shin, in one long continuous stroke from bottom to top, the head always touching the skin and the device always staying horizontal and perpendicular to the leg; then she lifts it off, returns to the ankle and makes a second long stroke from bottom to top. Strokes only go upward, never sideways, never downward while touching. The white cord trails down to the floor. Camera almost static, a very slow gentle movement. Her face, blonde hair and pajamas stay exactly the same. Realistic hand and skin physics, natural skin texture, calm relaxed movements. No text."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Depilador Philips: ligar, depilar e pronto. Remove suavemente os pelos, e a depilação fica mais confortável com o uso regular.",
+    "musicVolume": 0.18
+  }
+}

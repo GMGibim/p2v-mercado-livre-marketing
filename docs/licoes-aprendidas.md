@@ -1,73 +1,70 @@
-# Lições aprendidas (produto 1: Philips MG3927)
+# Diário de produtos
 
-Problemas reais do primeiro produto e o que resolveu. Leia antes de escrever prompts.
+O que aconteceu em cada produto e qual regra saiu dali. As regras ficam só no `AGENTS.md` (códigos R, J, P, E, M, A, V); aqui fica o histórico. Custos são estimativas pela tabela e pelo que o usuário viu no console.
 
-## Fotos de referência
-| Problema | Solução |
+## 1. Philips MG3927 — aparador 9 em 1
+
+- Fotos com texto ("Pente íntimo", "Lâminas autoafiáveis"): recortadas → **R1**. Foto de homem sem camisa e de pessoa real no espelho: fora → **R2, R3**.
+- O Kling recusou uma foto de 280×1154 e um recorte de 320 px → `refs` passou a normalizar → **R7**.
+- O brilho verde da foto da lâmina apareceu na cena de uso → **R5**.
+- O homem passava o aparador com a lateral; descrever o contato e o sentido resolveu → **P3**.
+- Cada regravação criava outra pessoa; o rosto extraído de uma versão aprovada (`npm run frame`) virou referência → origem da **pessoa fixa (J1)**.
+- O aparador saiu 180° invertido porque o pedido de orientação estava ambíguo → **P1**.
+- O plano emendado ficou com 9,97 s → extensão automática → **M5**.
+- Custo ≈ US$ 4,60, incluindo um teste descartado com Seedance (5 a 10 vezes mais caro que o Wan).
+
+## 2. Philips Walita S7887 — barbeador rotativo
+
+- Fotos do anúncio com "NORELCO", garantia dos EUA e "2000/7000 Series" → **R4**; fala com "Série 7000" → **A2**.
+- O plano tech gerou "2000 Series" legível no corpo → **E5**; saiu horizontal com faixas borradas → **E4**.
+- A pegada errou três vezes no prompt, mesmo com print de referência; resolveu com quadros fixos de fotos que o usuário gerou → **P4, P5**, comando `npm run clip`.
+- Barbeador rotativo não tira barba cheia: o conceito virou "só de bigode", e a variante de bigode do Jorge foi feita por edição de imagem → **J1**. Editar de novo em cima da edição escureceu o cabelo e afastou o rosto → **J2**.
+- Misturar a foto do produto com a pose fez o modelo girar o barbeador → **E6**.
+- A transição "câmera gira 180°" virou rolagem de cabeça para baixo; a porta giratória funcionou → **E3**. A emenda ficou contínua terminando a transição no quadro em que o clipe seguinte começa → **M1**.
+- Uma fala de 29 palavras durou 16 s e cobriu o gesto final → **A4**.
+- A detecção de corte não achou o plano 3 → **M4**.
+- Custo ≈ US$ 6 (cerca de metade em tentativas descartadas).
+
+## 3. Philips OneBlade QP220 — lâmina de reposição
+
+- O produto é só a lâmina; o aparelho não vem na caixa → **A3**. "Dura até 4 meses*" ficou de fora → **A1**.
+- O barbear parecia retoque de maquiagem (toquinhos curtos) → **P2**.
+- O modelo desenhou a base de plástico solta sobre o cabo; no produto real ela vem presa à lâmina → **R6** ("one single unit"). A foto da mão com a peça solta induzia o erro e saiu das referências.
+- O encaixe do cabo saiu diferente do real; um print do detalhe real resolveu na primeira tentativa → **R6**.
+- Fotos de avaliação de clientes mostraram o produto real, com texto da caixa e QR code → **R1**.
+- Custo ≈ US$ 3,2–3,8.
+
+## 4. Mondial Climatizador CL-03
+
+- O título diz "Flash Air" e o aparelho diz "Fresh Air": a fala ficou só com "Climatizador Mondial" → **A2**. "Livre de bactérias", temperatura e "substitui o ar-condicionado" ficaram de fora → **A1**.
+- O quadro do Jorge no sofá foi gerado com retrato + foto de pose + produto e depois ajustado por edição (climatizador virado para ele, meias no lugar do tênis, versão barbuda de camisa vermelha) → modelo **T4**.
+- Depois de várias edições o Jorge "mudou"; o resgate foi editar a cena aprovada levando os retratos originais e descrevendo os traços → **J2**, modelo **T2**. No corpo inteiro o rosto fica pequeno → **J3**.
+- O prompt dizia "no visible breath, no vapor" e o Kling desenhou uma nuvem branca saindo da boca. Cortar o trecho no `join` tirou a nuvem e também a respiração, e o usuário recusou → **M2**. Reescrever sem nomear o efeito resolveu → **E1**.
+- A névoa do climatizador podia sugerir água pulverizada; foi tirada do quadro inicial e o vento ficou só no cabelo e na camiseta → **regra 3, E2**, modelo **T3**.
+- Ação e reação num clipe só de 8 s, sem corte → **M3**.
+- Uma geração foi recusada por saldo ("credit balance is too low"), sem cobrança → **regra 2**.
+- Custo ≈ US$ 3,4–5,2 (Wan US$ 0,84 + quatro clipes de 8 s + ~9 edições de imagem).
+
+## 5. Philips depilador rosa (com fio)
+
+- A modelo loira foi gerada direto pelo Wan, com o rosto fora do quadro: o cabelo loiro não aparecia → **J4**; e o aparelho ficou deitado ao longo da canela → **P5**.
+- Três rodadas de edição de imagem (texto, croqui e composição nova) não mudaram a pose nem o enquadramento: o modelo se prendeu à imagem da mulher → **P4**. O usuário gerou a imagem base com a pose certa.
+- "Perpendicular" teve duas leituras: na primeira base, o aparelho estava com a face do botão para a câmera; o certo era visto de lado, horizontal, a 90° da perna → **P1**. O movimento passou a ser só de baixo para cima no comprimento da perna → **P2, P3**.
+- Os prints de referência eram de outro modelo (com faixa vermelha), e a base herdou uma faixa que o produto não tem. O usuário corrigiu só a aparência com o prompt **T1** → **R4, E6**.
+- Um recorte de revisão mal posicionado mostrou só a borda do aparelho → **V1**.
+- Custo ≈ US$ 2,2–3,1.
+
+## Ambiente e técnico
+
+| Situação | O que fazer |
 |---|---|
-| Fotos do anúncio com texto ("Pente íntimo", "Lâminas autoafiáveis") | Recortar só a parte da imagem (`crop`). O modelo copia texto e deforma. |
-| Foto com homem sem camisa / tema íntimo | Não usar: risco de moderação (Higgsfield `nsfw`) e de política no Mercado Livre. |
-| Foto com pessoa real (homem no espelho) | Não usar como referência; descrever uma pessoa nova no prompt. |
-| Kling O3 recusou: "image dimensions or aspect ratio are not supported" | Foto 280×1154 (muito estreita) e recorte 320 px (pequeno). `npm run refs` agora adiciona margem branca (proporção 1:2 a 2:1) e amplia para ≥ 512 px. |
-| Brilho verde da foto da lâmina apareceu no plano de uso | Tirar a foto com efeito de luz das refs daquele plano e dizer "no light, no glow" no prompt. |
-
-## Prompts
-| Problema | Solução |
-|---|---|
-| Pessoa passava o aparador com a lateral (não cortaria nada) | Descrever a mecânica: "blade teeth flat against the skin, teeth pointing upward, slow upward strokes against hair growth, cutting edge leads, the side never touches the face". Referência visual do usuário (vídeo de alguém aparando) ajudou a escrever. |
-| Cada regravação criava uma pessoa diferente | Extrair o rosto de uma versão aprovada (`npm run frame ... --crop`) e usar como primeira referência: "the man from the portrait reference". |
-| Aparador 180° invertido | Ser explícito sobre **qual face encosta na pele e qual a câmera vê**. Confirmar a orientação com o usuário antes de gerar — a primeira tentativa inverteu o pedido e custou uma versão. |
-| Câmera passou a mostrar a pessoa "real" na frente do espelho (mão/nuca em primeiro plano) | Se incomodar, pedir "only the mirror reflection is visible, no foreground person". |
-
-## Técnico
-| Problema | Solução |
-|---|---|
-| `uploadImage` do SDK da Higgsfield retorna 403 (SignatureDoesNotMatch) | A API devolve `upload_headers` (inclui `x-amz-tagging`) que precisam ir no PUT. Implementado em `src/higgsfield.ts`. |
-| Kling passou de 5 min e o SDK desistiu (job continuou e foi cobrado; ID perdido) | `maxPollTime` de 20 min. A API pública não lista requisições — sem o ID, só pelo console. |
-| Vídeo emendado ficou com 9,97 s (< 10 s do Mercado Livre) | `splice` estende o último quadro até 10,2 s. |
+| `uploadImage` do SDK da Higgsfield retorna 403 (SignatureDoesNotMatch) | A API devolve `upload_headers` (inclui `x-amz-tagging`) que precisam ir no PUT. Já implementado em `src/higgsfield.ts`. |
+| O Kling passou de 5 min e o SDK desistiu; o job continuou e foi cobrado, com o ID perdido | `maxPollTime` de 20 min. A API pública não lista requisições: sem o ID, só pelo console. |
+| Modelos de áudio da Higgsfield só via CLI, com login próprio; o Windows Defender pôs o executável da CLI em quarentena (detecção heurística) | Não contornar o antivírus. Voz pela API da ElevenLabs. |
+| ElevenLabs: "API key ID used as API key" | A chave válida começa com `sk_` e só aparece na criação ou rotação. |
+| ElevenLabs grátis: vozes da biblioteca e API de música bloqueadas | Vozes padrão (Bella) e música da Pixabay em `products/_shared/musica/`. |
+| Música vs. voz | Música a 18% fica 8–11 dB abaixo da voz; fade-out no último segundo. |
 | Legenda no ffmpeg quebrava com caminhos do Windows | Caminhos com `/` e slug sem espaços (o `.ass` vai dentro do filtro). |
-
-## Áudio
-| Problema | Solução |
-|---|---|
-| Modelos de áudio da Higgsfield só via CLI com login próprio; o Windows Defender pôs o executável da CLI em quarentena (`Trojan:Win32/Bearfoos.A!ml`, detecção heurística) | Não contornar o antivírus. Voz pela API da ElevenLabs. |
-| Chave da ElevenLabs "ID usado como chave" | A chave válida começa com `sk_` e só aparece na criação/rotação. |
-| Plano grátis: vozes da biblioteca e API de música bloqueadas | Vozes padrão (Bella aprovada) + música da Pixabay em `refs/`. |
-| Música vs. voz | Música a 18% fica 8–11 dB abaixo da voz (bom para fundo). Fade-out no último segundo. |
-
-## Produto 2: Philips Walita S7887 (barbeador rotativo) — o que mudou
-
-| Problema | Solução |
-|---|---|
-| Fotos do anúncio de outra região: corpo com "NORELCO", selo de garantia dos EUA, "2000/7000 Series" | Conferir os textos **ampliados** antes de usar a foto e deixar fora as que não batem com o produto entregue; falar "Série 7000" (está no corpo e na caixa). O plano tech gerou "2000 Series" legível na base: a solução foi **enquadrar só as cabeças**, sem corpo nem texto. |
-| Plano tech saiu horizontal, com faixas borradas em cima e embaixo | Pedir "portrait composition that fills the entire frame, no letterbox, no blurred bars" e "filmed from slightly above". |
-| Pegada errada 3 vezes (lâminas viradas para a câmera, máquina dentro da barba, de lado) mesmo com print de referência | Prompt não resolveu. Funcionou **animar entre quadros fixos** (foto da pose certa como `first_frame_url`/`last_frame_url` no Kling): `npm run clip`. As fotos da pose o usuário gerou/aprovou. |
-| Barbeador rotativo não tira barba cheia | O conceito do vídeo mudou para "só de bigode, pele lisa": o Jorge precisa de uma referência **só de bigode**. Editar o retrato (barba → bigode) com `xai/grok-imagine-image-2.0` funcionou; mas editar de novo em cima da edição escureceu o cabelo e afastou o rosto. |
-| Misturar a foto do produto com a pose na edição de imagem fez o modelo girar o produto | Editar só a cor/forma, com a pose pronta como única entrada, e não usar a foto de outro modelo de barbeador como referência de forma. |
-| Plano de uso muito fechado e corte entre clipes quebrando o fluxo | Quadros 9:16 com mais cena em volta; terminar um clipe exatamente no quadro em que o próximo começa e cortar 0,1 s do seguinte no `join`. |
-| Transição barbudo → bigode: "câmera gira 180°" virou rolagem com a imagem de cabeça para baixo | Dizer **o eixo e o que fica parado**: câmera fixa, o espelho vira uma lâmina que gira no eixo vertical, como porta giratória; no verso, o Jorge já está sem barba e barbeando. Terminar no quadro 2 (perfil, máquina na bochecha). |
-| Fala de 29 palavras durou 16 s e cobria o gesto final | A Bella fala ~2 palavras/s; "360-D" e siglas ficam longos. Enxugar a fala para terminar antes do último plano e deixar só música no gesto final. |
-| Cobrança do Kling acima da tabela | Tabela US$ 0,042/s; saiu ~US$ 0,07/s (4 s = 0,28) e uma geração de 4 s com quadro inicial e final custou 0,50. Dar faixa de custo e pedir confirmação no console. |
-| Detecção de corte não achou o plano 3 (planos parecidos) | `reshoot --start <s>` informa o ponto à mão. |
-| `ffmpeg drawtext` com Fontconfig quebrou (segfault) no Windows | Não usar `drawtext`; para olhar tempos, imprimir os quadros sem texto ou usar a legenda gerada. |
-
-Custos do produto 2 (estimativa): Wan base + tech ≈ US$ 1,1 · Kling (barbear perfil 0,28 + final 0,21 + transições, a última 0,50) ≈ US$ 1,5 · edições de imagem ≈ US$ 0,25 · tentativas descartadas ≈ US$ 3. Total próximo de US$ 6.
-
-## Produto 3: Philips OneBlade QP220 (lâmina de reposição) — o que mudou
-
-| Problema | Solução |
-|---|---|
-| O produto vendido é só a **lâmina de reposição**; o aparelho não vem na caixa | Herói e planos de detalhe mostram a embalagem e as lâminas; o aparelho só aparece como contexto de uso. A fala diz "lâmina de reposição" e "compatível com todos os cabos OneBlade" (isso está na descrição do anúncio; conferir antes de afirmar). |
-| "Dura até 4 meses" aparece com asterisco | A descrição amarra a condição ("2 vezes por semana, resultados podem variar"). Fora da fala e da legenda. |
-| Fotos do anúncio com mão e rosto reais (troca da lâmina, homem barbudo em oval) | Usadas só como referência de **forma**; a pessoa vem do Jorge fixo. Foto de avaliação de cliente serve de referência do produto real, mas traz texto da caixa e QR code: recortar só a parte do produto, senão o modelo copia o texto. |
-| Barbear parecendo "retoque de maquiagem" (toquinhos curtos e repetidos) | Descrever **passadas longas e contínuas**: "uma passada lenta da orelha até o canto da mandíbula, levanta, uma segunda passada mais abaixo, uma longa pelo pescoço; a lâmina fica em contato durante cada passada, nunca toques". Clipe de 5 s para caber duas passadas. |
-| O modelo desenhou a base de plástico da lâmina solta sobre o cabo | No produto real a **base preta vem presa à lâmina** (colar redondo e duas hastes longas). Dizer no prompt "ONE single unit, the base is part of the blade and never separate" e usar a foto das unidades na bandeja (recorte sem texto) como referência. A foto da mão com a peça solta induzia o erro, então saiu das referências. |
-| O encaixe do cabo vazio saiu largo, com furo redondo e duas fendas, diferente do real | Mandar **print do detalhe real** (abertura estreita, pino hexagonal central, fendas em "X", furinhos nos cantos, plaquinha com triângulo) como primeira referência e descrever o formato no prompt. Resolveu na primeira tentativa. |
-| Final do clipe com deriva de identidade (olhos fechados, cabelo mais volumoso) | Acontece no fim de clipes de 3 s sem quadro final: o prompt de "gesto final" solta o rosto. Se aparecer, regenerar só esse plano pedindo cabeça reta e cabelo igual. Neste produto a reação final do Jorge foi aprovada como estava. |
-| Detecção de corte não achou planos no Wan (nenhum corte detectado) | Os planos do Wan eram parecidos (fundo único). Use `reshoot --start/--end` com os tempos do roteiro (ex.: `--start 6 --end 10`). |
-| Verificação de segurança do ambiente falhou várias vezes seguidas e bloqueou o terminal | Falha passageira do ambiente, não do comando. Fazer o que não depende de comando (editar `product.json`), tentar de novo mais tarde e, se persistir, dar ao usuário os comandos prontos. |
-
-Custo do produto 3 (estimativa, Kling com a faixa observada): Wan base US$ 0,84 + 4 trocas/ajustes de 4 s no Wan (~US$ 1,4) + Kling uso e final (~US$ 0,9–1,5) ≈ US$ 3,2–3,8.
-
-## Custos do produto 1 (tabela)
-Seedance de teste ~US$ 2,31 (descartado: 5–10× mais caro) · Wan v1 US$ 0,84 · Kling (falha + timeout) ~US$ 0,42 · 3 regravações de 4 s ~US$ 1,02. Total ≈ US$ 4,60.
+| `ffmpeg drawtext` causou segfault (Fontconfig) no Windows | Não usar `drawtext`; para tempos, use a legenda gerada. |
+| `npm run refs` falhou com "fetch failed" uma vez | Instabilidade da rede ou do CDN: rode de novo. |
+| A verificação de segurança do ambiente do agente bloqueou o terminal várias vezes seguidas | Falha passageira do ambiente. Faça o que não depende de comando (editar `product.json`), tente de novo e, se persistir, entregue os comandos prontos ao usuário. |

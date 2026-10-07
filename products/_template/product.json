@@ -9,14 +9,27 @@
     "model": "wan",
     "duration": 10,
     "refs": ["produto.png", "detalhe.png"],
-    "prompt": "Vertical 9:16 product commercial for the <produto> shown in the reference images.\nKeep the product exactly as in the references: <cor, material, logo, botões>. Do not add or change parts.\nShot 1 (0-3s): <produto sozinho, fundo de estúdio, câmera aproximando>.\nShot 2 (3-6s): <macro do diferencial principal>.\nShot 3 (6-10s): <produto em uso, mecânica correta>.\nNo on-screen text, no captions, no subtitles."
+    "prompt": "Vertical 9:16 product commercial for the <produto> shown in the reference images.\nKeep the product exactly as in the references: <cor, material, logo, botões>. Do not add or change parts.\nShot 1 (0-3s): <produto sozinho, fundo de estúdio, câmera aproximando>.\nShot 2 (3-6s): <macro do diferencial principal>.\nShot 3 (6-10s): <detalhe, acessório ou mãos usando o produto — sem pessoa inteira>.\nNo on-screen text, no captions, no subtitles."
   },
   "reshoots": {
-    "uso": {
+    "detalhe": {
       "shot": 3,
       "duration": 4,
-      "refs": ["produto.png"],
-      "prompt": "Vertical 9:16, single continuous shot, no cuts.\n<descreva só este plano, com orientação do produto e mecânica de uso explícitas>.\nNo on-screen text, no captions."
+      "refs": ["produto.png", "detalhe.png"],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts.\n<descreva só este plano do produto>.\nNo on-screen text, no captions."
+    }
+  },
+  "clips": {
+    "uso": {
+      "first": "../_shared/jorge/<quadro-inicial-9x16>.png",
+      "last": "../_shared/jorge/<quadro-final-9x16>.png",
+      "duration": 5,
+      "prompt": "<quem e onde>. The <produto> stays exactly as in the first frame: <orientação em três pontos>. <movimento com sentido: passadas longas e contínuas>. Camera almost static. His face, hair and beard stay exactly the same all the time. Natural, candid, unretouched look: visible skin texture and pores, a few flyaway hairs, not a polished render. Realistic hand and skin physics. No text."
+    },
+    "final": {
+      "first": "../_shared/jorge/<quadro-final-9x16>.png",
+      "duration": 3,
+      "prompt": "<reação final, ex.: he lowers the product, looks at the camera and clearly raises both eyebrows with a satisfied slight smile>. Camera almost static. His face, hair and beard stay exactly the same all the time. Natural, candid look. No text."
     }
   },
   "audio": {

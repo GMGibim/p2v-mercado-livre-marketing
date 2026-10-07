@@ -1,4 +1,4 @@
-// Usage: npm run audio -- <produto> [--base <arquivo em out/>] [--music refs/<faixa>.mp3]
+// Usage: npm run audio -- <produto> [--base <arquivo em out/>] [--music ../_shared/musica/<faixa>.mp3]
 // Adds voice-over (ElevenLabs), synced captions and optional background music to a finished video.
 import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -53,6 +53,6 @@ run(async () => {
   const out = posix.join(ctx.outDir, videoName(ctx.product, baseInfo.modelLabel, await nextVersion(ctx.outDir), adjustment));
   mixAudio({ video: base, voice: voiceFile, music, assFile, voiceDelay: VOICE_DELAY_S, musicVolume: cfg.musicVolume ?? 0.18, out });
   console.log(`Base: ${posix.basename(base)}`);
-  console.log(`Fala: ${speech.toFixed(2)} s de ${videoDur.toFixed(2)} s${music ? "" : " (sem música: passe --music refs/<faixa>.mp3)"}`);
+  console.log(`Fala: ${speech.toFixed(2)} s de ${videoDur.toFixed(2)} s${music ? "" : " (sem música: passe --music ../_shared/musica/<faixa>.mp3)"}`);
   console.log(`Vídeo final: ${out}`);
 });

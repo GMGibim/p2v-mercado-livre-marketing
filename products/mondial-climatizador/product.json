@@ -1,0 +1,89 @@
+{
+  "name": "Mondial Climatizador CL-03",
+  "title": "Climatizador Flash Air Mondial Branco/preto 80w Cl-03",
+  "images": [
+    {
+      "file": "frente.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_843469-MLA99935994949_112025-F.webp"
+    },
+    {
+      "file": "tres-quartos.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_845133-MLA79409899106_092024-F.webp",
+      "crop": {
+        "left": 560,
+        "top": 60,
+        "width": 640,
+        "height": 1100
+      }
+    },
+    {
+      "file": "painel.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_713783-MLA79409899114_092024-F.webp",
+      "crop": {
+        "left": 700,
+        "top": 80,
+        "width": 420,
+        "height": 340
+      }
+    },
+    {
+      "file": "reservatorio.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_852594-MLA79654243611_092024-F.webp",
+      "crop": {
+        "left": 520,
+        "top": 0,
+        "width": 680,
+        "height": 800
+      }
+    },
+    {
+      "file": "controle.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_628649-MLA79654263179_092024-F.webp",
+      "crop": {
+        "left": 130,
+        "top": 290,
+        "width": 330,
+        "height": 600
+      }
+    },
+    {
+      "file": "gelos.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_628649-MLA79654263179_092024-F.webp",
+      "crop": {
+        "left": 430,
+        "top": 640,
+        "width": 540,
+        "height": 420
+      }
+    },
+    {
+      "file": "modelo-barbudo.png",
+      "source": "../_shared/modelo-barbudo.png"
+    }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": [
+      "frente.png",
+      "tres-quartos.png",
+      "painel.png",
+      "controle.png",
+      "gelos.png"
+    ],
+    "prompt": "Vertical 9:16 product commercial for the air cooler shown in the reference images.\nKeep the product exactly as in the references: a white and black tower air cooler with a black glossy frame, a black louvered front grille, a round digital control panel on top, a grey water-level window at the bottom and two small black wheels. Do not add or change parts, no text on the product other than what the references show.\nShot 1 (0-3s): the air cooler standing alone on a clean soft light-blue studio background, slow camera push-in, soft studio light.\nShot 2 (3-6s): close-up of the round digital control panel on top with its blue icons lighting up one after another, then the camera glides down along the black louvered front.\nShot 3 (6-10s): top-down view on a light-blue surface of a small grey remote control with round buttons and two blue reusable ice gel packs placed beside it, slow camera glide. No hands, no people.\nNo on-screen text, no captions, no subtitles."
+  },
+  "clips": {
+    "jorge_sofa_alivio": {
+      "first": "refs/sofa_v5_sem_nevoa.png",
+      "duration": 8,
+      "prompt": "The bearded man lies back relaxed on the brown sofa in a red t-shirt, both hands clasped behind his head, eyes closed, feet in white socks resting on the brown footrest. The appliance standing beside the sofa gives a gentle breeze toward him that you can only see in how it slightly moves his hair and his t-shirt. The air in the whole room is perfectly clear and transparent at all times, in front of the appliance, around his face and everywhere else. Camera almost static, a very slow gentle push-in. It is a warm, sunny afternoon indoors. For the first four seconds he simply relaxes in the breeze, his chest rising and falling gently and steadily. Then his whole body softens with relief: his chest gently sinks, his shoulders drop and the tension leaves his face, his lips closed in a soft contented smile, in one smooth easy motion that lasts about two seconds, never holding still. In the last two seconds he opens his eyes, looks at the camera and clearly raises both eyebrows with a satisfied slight smile. The appliance stays in place and unchanged. His face, hair and full beard stay exactly the same all the time. Natural, candid look: visible skin texture and pores, a few flyaway hairs, not a polished render. Realistic physics. No text."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Climatizador Mondial: resfria, umidifica, filtra e ventila. Três níveis de ventilação, timer de até sete horas e meia e controle remoto. Leve, com rodinhas, vai com você pra qualquer cômodo.",
+    "musicVolume": 0.18
+  }
+}
