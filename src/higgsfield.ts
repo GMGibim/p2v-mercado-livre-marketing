@@ -46,7 +46,7 @@ export function videoInput(model: ModelKey, prompt: string, imageUrls: string[],
 }
 
 // Returns the raw API result; callers persist it and check status themselves.
-export async function generateVideo(model: ModelKey, input: ReturnType<typeof videoInput>): Promise<any> {
+export async function generateVideo(model: ModelKey, input: object): Promise<any> {
   init();
   return higgsfield.subscribe(MODELS[model].endpoint, { input, withPolling: true });
 }

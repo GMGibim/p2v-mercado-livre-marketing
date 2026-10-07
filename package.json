@@ -12,7 +12,9 @@
     "frame": "tsx --env-file-if-exists=.env.local src/cli/tools.ts frame",
     "sheet": "tsx --env-file-if-exists=.env.local src/cli/tools.ts sheet",
     "voices": "tsx --env-file-if-exists=.env.local src/cli/tools.ts voices",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "clip": "tsx --env-file-if-exists=.env.local src/cli/clip.ts",
+    "join": "tsx --env-file-if-exists=.env.local src/cli/join.ts"
   },
   "dependencies": {
     "@higgsfield/client": "^0.2.6",

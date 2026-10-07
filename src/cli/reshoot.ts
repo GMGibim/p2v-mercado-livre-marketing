@@ -24,11 +24,15 @@ run(async () => {
   const baseInfo = parseVideoName(posix.basename(base));
   if (!baseInfo) throw new Error(`Nome do vídeo base fora do padrão: ${base}`);
 
+  // Cut detection misses transitions between similar-looking shots; --start/--end override it.
   const bounds = [0, ...sceneCuts(base), duration(base)];
   const planos = bounds.length - 1;
-  if (shot.shot < 1 || shot.shot > planos) throw new Error(`O vídeo base tem ${planos} plano(s); o plano pedido é ${shot.shot}.`);
-  const start = bounds[shot.shot - 1];
-  const end = bounds[shot.shot];
+  const manual = typeof flags.start === "string";
+  if (!manual && (shot.shot < 1 || shot.shot > planos)) {
+    throw new Error(`O vídeo base tem ${planos} plano(s) detectado(s) (cortes: ${bounds.slice(1, -1).map((b) => b.toFixed(2)).join(", ")}); o plano pedido é ${shot.shot}. Use --start/--end em segundos.`);
+  }
+  const start = manual ? Number(flags.start) : bounds[shot.shot - 1];
+  const end = typeof flags.end === "string" ? Number(flags.end) : manual ? duration(base) : bounds[shot.shot];
 
   const model = (typeof flags.model === "string" ? flags.model : shot.model ?? modelKeyFromLabel(baseInfo.modelLabel)) as ModelKey;
   if (!(model in MODELS)) throw new Error(`--model deve ser ${Object.keys(MODELS).join(" ou ")}`);

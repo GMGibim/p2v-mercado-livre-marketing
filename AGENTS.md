@@ -56,10 +56,24 @@ Dicas que funcionaram (mais em `docs/licoes-aprendidas.md`):
 - **Orientação do produto** precisa ser explícita e sem ambiguidade: diga qual face encosta na pele e qual face a câmera vê. Confirme com o usuário antes — inverter isso custou uma versão.
 - **Mecânica de uso:** descreva contato, direção e movimento (ex.: "blade teeth flat against the skin, upward strokes, cutting edge leads").
 
+### 5b. Quando o prompt não acerta a pose: quadros fixos (técnica que resolveu o produto 2)
+Se o modelo erra a pose do produto em uso 2 vezes seguidas, **pare de ajustar o prompt**. Peça ao usuário **fotos de referência da pose** (a pessoa fixa segurando o produto do jeito certo, em cada ângulo) e anime **entre elas**:
+1. Recorte cada referência em **9:16** (`sharp`, janela centrada no rosto + produto) e salve em `products/_shared/<pessoa>/`.
+2. Declare em `clips` do `product.json`: `first` (quadro inicial), `last` (opcional, quadro final), `prompt` curto de movimento e `duration` (3–15 s).
+3. `npm run clip -- <slug> <chave> --dry-run` → mostre o custo → com "ok", sem `--dry-run`. O Kling O3 começa e termina exatamente nas fotos, então pose, máquina e pessoa já nascem certas.
+4. Junte os trechos (grátis): `npm run join -- <slug> "<ajuste>" "<base>@0-5.97" "<clipe A>" "<clipe B>@0.1-" ...` (`@ini-fim` em segundos; cortar 0,1 s do clipe seguinte evita quadro duplicado quando o último quadro de um é o primeiro do outro).
+Exemplo completo: `clips` em `products/philips-walita-s7887/product.json`.
+
+**Pessoa fixa** ("Jorge Sérgio"): `products/_shared/` guarda os retratos e quadros dele (fora do git). Use sempre os mesmos como referência para ele aparecer igual em todos os anúncios. Não derive o rosto de uma imagem já editada por IA (cada edição afasta do original e escurece o cabelo): parta de **quadros de vídeo aprovados** ou de fotos que o usuário aprovou.
+
+**Edição de imagem** (ex.: tirar a barba do retrato): `xai/grok-imagine-image-2.0` pela Higgsfield (`image_urls` + prompt de edição, ~US$ 0,04). Dá certo para mudar um detalhe (barba → bigode). **Não** use a foto do produto como referência junto da pose: o modelo gira o produto; corrija só cor/forma depois, com o produto sozinho.
+
+**Transições em uma tomada:** Kling com quadro inicial e final. A "porta giratória" (câmera parada, o espelho vira uma lâmina que gira 180° no eixo vertical e mostra o outro lado) funcionou; pedir "câmera gira em torno do espelho" gerou rolagem e imagem de cabeça para baixo. Descreva **eixo, o que gira e o que fica parado**.
+
 ### 6. Voz, legenda e música
-1. **Script da voz**: ~20–25 palavras para 10 s (a fala deve terminar antes do vídeo). Uma linha só, com **ganchos entre planos** (produto → pergunta/ponte → diferencial → benefício). Use só informações verificadas.
+1. **Script da voz**: a Bella fala ~2,1 palavras/s (≈ 130 por minuto), mais devagar do que parece; números e siglas ("360-D") viram palavras por extenso e alongam a frase. Calcule com **~2 palavras por segundo**, **confira os tempos na legenda gerada** e deixe o último plano **sem fala** se houver gesto final (ex.: sobrancelha). Uma linha só, com **ganchos entre planos** (produto → pergunta/ponte → diferencial → benefício). Use só informações verificadas; prefira "Série 7000" a "S7887" na fala (números de modelo são lidos de forma imprevisível).
 2. **Voz**: `npm run voices` lista vozes femininas em pt. Contas **grátis** só usam as vozes "padrão" pela API (a Bella foi aprovada). Vozes da biblioteca exigem plano pago.
-3. **Música**: a API de música da ElevenLabs é paga. Use faixa da **Pixabay Music** (licença permite uso em vídeo de produto, sem atribuição). O usuário baixa e salva em `products/<slug>/refs/`. Não use música da biblioteca do CapCut/TikTok (licença não cobre o Mercado Livre).
+3. **Música**: a API de música da ElevenLabs é paga. Use faixa da **Pixabay Music** (licença permite uso em vídeo de produto, sem atribuição). O usuário baixa e salva em `products/_shared/musica/` (uma cópia para todos os produtos; use `--music ../_shared/musica/<faixa>.mp3`). Não use música da biblioteca do CapCut/TikTok (licença não cobre o Mercado Livre).
 4. `npm run audio -- <slug> --music refs/<faixa>.mp3` (base padrão: última versão sem áudio; `--base "<arquivo>"` para escolher). Gere uma versão por faixa se o usuário estiver em dúvida. A voz fica em cache: mudar o script gera nova voz; rodar de novo não gasta.
 
 ### 7. Checklist final (antes de o usuário publicar)
@@ -74,15 +88,17 @@ Dicas que funcionaram (mais em `docs/licoes-aprendidas.md`):
 | Comando | O que faz | Custo |
 |---|---|---|
 | `npm run refs -- <slug>` | Baixa/recorta/normaliza fotos para `refs/` | grátis |
-| `npm run video -- <slug> [--model wan\|kling] [--dry-run]` | Gera o vídeo completo | Wan ~US$ 0,084/s · Kling ~US$ 0,042/s |
-| `npm run reshoot -- <slug> <chave> "<ajuste>" [--base <arq>] [--dry-run]` | Regera um plano e emenda | idem, só a duração do plano |
+| `npm run video -- <slug> [--model wan\|kling] [--dry-run]` | Gera o vídeo completo | Wan ~US$ 0,084/s · Kling ~US$ 0,07–0,125/s |
+| `npm run reshoot -- <slug> <chave> "<ajuste>" [--base <arq>] [--start s] [--end s] [--dry-run]` | Regera um plano e emenda (`--start/--end` quando a detecção de corte falha) | idem, só a duração do plano |
+| `npm run clip -- <slug> <chave> [--dry-run]` | Clipe Kling entre quadros fixos (`clips` do `product.json`) | **~US$ 0,07/s, já cobrou até ~US$ 0,125/s** |
+| `npm run join -- <slug> "<ajuste>" "<arq>[@ini-fim]" ...` | Junta trechos de `out/` (com recorte) | grátis |
 | `npm run frame -- <slug> "<vídeo>" <s> <nome.png> [--crop w:h:x:y]` | Quadro do vídeo → `refs/` | grátis |
 | `npm run sheet -- <slug> "<vídeo>"` | Montagem de 10 quadros para revisão | grátis |
 | `npm run voices` | Lista vozes femininas pt | grátis |
 | `npm run audio -- <slug> [--music refs/x.mp3] [--base <arq>]` | Voz + legenda + música | voz: créditos ElevenLabs |
 | `npm run typecheck` | Checa os tipos | — |
 
-Preços são de tabela (com promoções da Higgsfield na época); confirme no console.
+Preços são de tabela e **variam**: o Kling saiu de US$ 0,042/s (promoção) para ~US$ 0,07/s (4 s = US$ 0,28) e uma geração de 4 s com quadro inicial e final custou US$ 0,50. Dê sempre a faixa ao usuário e peça para ele conferir no console da Higgsfield. O Wan não tem quadro inicial/final.
 
 ## Nomes de arquivo
 

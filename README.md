@@ -47,6 +47,8 @@ Exemplo real e aprovado: [`products/philips-mg3927/product.json`](products/phili
 | `npm run refs -- <produto>` | Baixa/recorta as fotos, adiciona margem em imagens estreitas e amplia as pequenas |
 | `npm run video -- <produto> [--model wan\|kling] [--dry-run]` | Gera o vídeo completo a partir das referências |
 | `npm run reshoot -- <produto> <plano> "<ajuste>" [--base <arquivo>] [--dry-run]` | Regera um plano (detectado por corte de cena) e emenda no vídeo |
+| `npm run clip -- <produto> <clipe> [--dry-run]` | Anima um clipe (Kling O3) **entre quadros fixos** de início e fim: a técnica para acertar a pose do produto em uso |
+| `npm run join -- <produto> "<ajuste>" "<arq>[@ini-fim]" ...` | Junta trechos de `out/` (com recorte opcional), sem custo |
 | `npm run frame -- <produto> "<vídeo>" <segundos> <nome.png> [--crop w:h:x:y]` | Extrai um quadro para usar como referência (ex.: manter a mesma pessoa) |
 | `npm run sheet -- <produto> "<vídeo>"` | Gera uma montagem de 10 quadros para revisão |
 | `npm run voices` | Lista vozes femininas em português na ElevenLabs |
@@ -57,11 +59,15 @@ Exemplo real e aprovado: [`products/philips-mg3927/product.json`](products/phili
 | Item | Preço de tabela (out/2026) |
 |---|---|
 | Wan 3.0 Prime 720p | ~US$ 0,084/s (10 s ≈ US$ 0,84) |
-| Kling O3 std | ~US$ 0,042/s (promoção; cheio US$ 0,084/s) |
+| Kling O3 std | tabela US$ 0,042/s (promoção); **cobrado ~US$ 0,07/s** e até ~US$ 0,125/s em clipes com quadro inicial e final |
 | Voz ElevenLabs | créditos do plano (~150 caracteres por clip) |
 | Música Pixabay | grátis |
 
-O primeiro produto (Philips MG3927) saiu por cerca de US$ 4–5 em gerações, incluindo testes e 3 regravações de plano.
+O primeiro produto (Philips MG3927) saiu por cerca de US$ 4–5 em gerações, incluindo testes e 3 regravações de plano. O segundo (Philips Walita S7887, com pessoa fixa e quadros de referência) ficou perto de US$ 6.
+
+## Pessoa fixa
+
+`products/_shared/` (fora do git) guarda o retrato e os quadros do "Jorge Sérgio", o modelo que aparece em todos os anúncios, e as músicas em `_shared/musica/`. Os exemplos reais estão em [`products/philips-walita-s7887/product.json`](products/philips-walita-s7887/product.json).
 
 ## Documentação
 

@@ -75,6 +75,22 @@ export function splice(base: string, shot: string, start: number, end: number, o
   ffmpeg(["-i", base, "-i", shot, "-filter_complex", graph, "-map", "[v]", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", out]);
 }
 
+export type Segment = { file: string; start?: number; end?: number };
+
+// Concatenates segments (optionally trimmed) into one 720x1280 30 fps video, holding the last frame up to the 10 s minimum.
+export function joinClips(segments: Segment[], out: string) {
+  const inputs = segments.flatMap((s) => ["-i", s.file]);
+  const parts = segments.map((s, i) => {
+    const trim = s.start !== undefined || s.end !== undefined ? `trim=start=${s.start ?? 0}${s.end !== undefined ? `:end=${s.end}` : ""},` : "";
+    return `[${i}:v]${trim}setpts=PTS-STARTPTS,scale=720:1280,fps=30,setsar=1[v${i}]`;
+  });
+  const total = segments.reduce((sum, s) => sum + ((s.end ?? duration(s.file)) - (s.start ?? 0)), 0);
+  const hold = Math.max(0, MIN_CLIP_SECONDS - total);
+  const labels = segments.map((_, i) => `[v${i}]`).join("");
+  const graph = `${parts.join(";")};${labels}concat=n=${segments.length}:v=1:a=0${hold > 0 ? `,tpad=stop_mode=clone:stop_duration=${hold.toFixed(2)}` : ""}[v]`;
+  ffmpeg([...inputs, "-filter_complex", graph, "-map", "[v]", "-c:v", "libx264", "-crf", "18", "-pix_fmt", "yuv420p", out]);
+}
+
 type Word = { text: string; start: number; end: number };
 
 function words(a: Alignment): Word[] {

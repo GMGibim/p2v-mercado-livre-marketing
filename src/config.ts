@@ -10,18 +10,23 @@ export type ImageRef = { file: string; source?: string; crop?: Crop };
 export type ModelKey = keyof typeof MODELS;
 export type ShotSpec = { refs: string[]; prompt: string; duration: number; model?: ModelKey };
 
+// Kling clip animated between fixed frames (paths relative to the product folder, e.g. "../_shared/jorge/quadro-2-9x16.png").
+export type ClipSpec = { first: string; last?: string; prompt: string; duration: number };
+
 export type Product = {
   name: string;
   title: string;
   images: ImageRef[];
   video: ShotSpec;
   reshoots?: Record<string, ShotSpec & { shot: number }>;
+  clips?: Record<string, ClipSpec>;
   audio?: { voiceId: string; voiceName: string; script: string; musicVolume?: number };
 };
 
 export const MODELS = {
   wan: { label: "Wan Prime", endpoint: "alibaba/wan-3.0-prime/reference-to-video", usdPerSecond: 0.084, min: 2, max: 30 },
-  kling: { label: "Kling O3", endpoint: "kling-video/o3/image-reference", usdPerSecond: 0.042, min: 3, max: 15 },
+  // Listed at US$ 0.042/s (promo), but observed bills were ~US$ 0.07/s (4 s = 0.28) and up to ~US$ 0.125/s (4 s = 0.50).
+  kling: { label: "Kling O3", endpoint: "kling-video/o3/image-reference", usdPerSecond: 0.07, min: 3, max: 15 },
 } as const;
 
 export type ProductCtx = {
@@ -91,5 +96,7 @@ export function modelKeyFromLabel(label: string): ModelKey {
 }
 
 export function estimateUsd(model: ModelKey, seconds: number): string {
-  return `~US$ ${(MODELS[model].usdPerSecond * seconds).toFixed(2)} (preço de tabela; confira no console)`;
+  const base = MODELS[model].usdPerSecond * seconds;
+  const range = model === "kling" ? ` a ~US$ ${(0.125 * seconds).toFixed(2)} (o Kling já cobrou até ~US$ 0,125/s)` : "";
+  return `~US$ ${base.toFixed(2)}${range} (estimativa; confira no console)`;
 }

@@ -35,5 +35,23 @@ Problemas reais do primeiro produto e o que resolveu. Leia antes de escrever pro
 | Plano grátis: vozes da biblioteca e API de música bloqueadas | Vozes padrão (Bella aprovada) + música da Pixabay em `refs/`. |
 | Música vs. voz | Música a 18% fica 8–11 dB abaixo da voz (bom para fundo). Fade-out no último segundo. |
 
+## Produto 2: Philips Walita S7887 (barbeador rotativo) — o que mudou
+
+| Problema | Solução |
+|---|---|
+| Fotos do anúncio de outra região: corpo com "NORELCO", selo de garantia dos EUA, "2000/7000 Series" | Conferir os textos **ampliados** antes de usar a foto e deixar fora as que não batem com o produto entregue; falar "Série 7000" (está no corpo e na caixa). O plano tech gerou "2000 Series" legível na base: a solução foi **enquadrar só as cabeças**, sem corpo nem texto. |
+| Plano tech saiu horizontal, com faixas borradas em cima e embaixo | Pedir "portrait composition that fills the entire frame, no letterbox, no blurred bars" e "filmed from slightly above". |
+| Pegada errada 3 vezes (lâminas viradas para a câmera, máquina dentro da barba, de lado) mesmo com print de referência | Prompt não resolveu. Funcionou **animar entre quadros fixos** (foto da pose certa como `first_frame_url`/`last_frame_url` no Kling): `npm run clip`. As fotos da pose o usuário gerou/aprovou. |
+| Barbeador rotativo não tira barba cheia | O conceito do vídeo mudou para "só de bigode, pele lisa": o Jorge precisa de uma referência **só de bigode**. Editar o retrato (barba → bigode) com `xai/grok-imagine-image-2.0` funcionou; mas editar de novo em cima da edição escureceu o cabelo e afastou o rosto. |
+| Misturar a foto do produto com a pose na edição de imagem fez o modelo girar o produto | Editar só a cor/forma, com a pose pronta como única entrada, e não usar a foto de outro modelo de barbeador como referência de forma. |
+| Plano de uso muito fechado e corte entre clipes quebrando o fluxo | Quadros 9:16 com mais cena em volta; terminar um clipe exatamente no quadro em que o próximo começa e cortar 0,1 s do seguinte no `join`. |
+| Transição barbudo → bigode: "câmera gira 180°" virou rolagem com a imagem de cabeça para baixo | Dizer **o eixo e o que fica parado**: câmera fixa, o espelho vira uma lâmina que gira no eixo vertical, como porta giratória; no verso, o Jorge já está sem barba e barbeando. Terminar no quadro 2 (perfil, máquina na bochecha). |
+| Fala de 29 palavras durou 16 s e cobria o gesto final | A Bella fala ~2 palavras/s; "360-D" e siglas ficam longos. Enxugar a fala para terminar antes do último plano e deixar só música no gesto final. |
+| Cobrança do Kling acima da tabela | Tabela US$ 0,042/s; saiu ~US$ 0,07/s (4 s = 0,28) e uma geração de 4 s com quadro inicial e final custou 0,50. Dar faixa de custo e pedir confirmação no console. |
+| Detecção de corte não achou o plano 3 (planos parecidos) | `reshoot --start <s>` informa o ponto à mão. |
+| `ffmpeg drawtext` com Fontconfig quebrou (segfault) no Windows | Não usar `drawtext`; para olhar tempos, imprimir os quadros sem texto ou usar a legenda gerada. |
+
+Custos do produto 2 (estimativa): Wan base + tech ≈ US$ 1,1 · Kling (barbear perfil 0,28 + final 0,21 + transições, a última 0,50) ≈ US$ 1,5 · edições de imagem ≈ US$ 0,25 · tentativas descartadas ≈ US$ 3. Total próximo de US$ 6.
+
 ## Custos do produto 1 (tabela)
 Seedance de teste ~US$ 2,31 (descartado: 5–10× mais caro) · Wan v1 US$ 0,84 · Kling (falha + timeout) ~US$ 0,42 · 3 regravações de 4 s ~US$ 1,02. Total ≈ US$ 4,60.

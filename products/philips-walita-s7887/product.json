@@ -1,0 +1,136 @@
+{
+  "name": "Philips Walita S7887",
+  "title": "Philips Walita S7887 cinza",
+  "images": [
+    {
+      "file": "jorge-bigode.png",
+      "source": "../_shared/jorge-bigode.png"
+    },
+    {
+      "file": "modelo-barbudo.png",
+      "source": "../_shared/modelo-barbudo.png"
+    },
+    {
+      "file": "kit.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_850372-MLA99577190218_122025-F.webp"
+    },
+    {
+      "file": "frente.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_906245-MLA105025386670_012026-F.webp"
+    },
+    {
+      "file": "nano-skinglide.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_735248-MLA105025236816_012026-F.webp",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 960,
+        "height": 600
+      }
+    },
+    {
+      "file": "laminas.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_868148-MLA105025266480_012026-F.webp",
+      "crop": {
+        "left": 0,
+        "top": 380,
+        "width": 960,
+        "height": 580
+      }
+    },
+    {
+      "file": "cabeca-360.png",
+      "source": "https://http2.mlstatic.com/D_NQ_NP_2X_775097-MLA105599522639_012026-F.webp",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "width": 960,
+        "height": 600
+      }
+    },
+    {
+      "file": "pegada.png",
+      "source": "refs/raw/pegada_recorte.png"
+    }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": [
+      "modelo-barbudo.png",
+      "kit.png",
+      "frente.png",
+      "laminas.png",
+      "cabeca-360.png"
+    ],
+    "prompt": "Vertical 9:16 product commercial for the rotary electric shaver shown in the product reference images.\nKeep the shaver exactly as in the references: dark grey metallic body, three round rotary shaving heads on a dark blue flexible head unit, small PHILIPS wordmark, front control panel with a round power button and a vertical row of small light-blue LED icons. Do not add or change parts.\nShot 1 (0-3s): the shaver standing upright on a deep navy-blue studio background with subtle blue tech light lines, slow camera push-in, the front LED panel softly lit.\nShot 2 (3-6s): extreme close-up of the three rotary shaving heads: the head unit gently tilts and flexes in different directions while the circular blades spin inside the heads, clean futuristic blue lighting, no numbers or graphics.\nShot 3 (6-10s): the bearded man from the portrait reference, wearing a grey sweater, in front of a bathroom mirror. He holds the shaver in his right hand diagonally from below, the front control panel with the power button facing the camera, and presses the three heads flat against his upper cheek just above the beard line, shaving the cheek outline in small circular motions. His full beard stays neat and untouched. Calm and confident, soft natural light.\nNo on-screen text, no captions, no subtitles."
+  },
+  "reshoots": {
+    "zoeira": {
+      "shot": 3,
+      "duration": 4,
+      "refs": [
+        "modelo-barbudo.png",
+        "frente.png",
+        "kit.png"
+      ],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts. Comedic, playful tone.\nThe bearded man from the portrait reference, wearing a grey sweater, stands in front of a bathroom mirror holding the rotary electric shaver shown in the product reference images completely the wrong way: he presses the whole flat SIDE of the shaver's handle against his face, like using it as a paint roller, and slowly rolls and slides it sideways across his entire face, from the ear over the cheek, beard and chin to the other cheek. The shaving heads point away from his face and touch nothing.\nHe keeps a totally serious, proud and confident expression, as if he were doing it perfectly, then gives a small satisfied nod to the mirror.\nRealistic hand, skin and grip physics, soft natural light. No on-screen text, no captions."
+    },
+    "tech": {
+      "shot": 2,
+      "duration": 3,
+      "refs": [
+        "laminas.png",
+        "nano-skinglide.png",
+        "cabeca-360.png"
+      ],
+      "prompt": "Vertical 9:16 portrait composition that fills the entire frame from top to bottom, single continuous shot, no cuts, no letterbox, no blurred bars.\nExtreme macro of the three round rotary shaving heads of the shaver in the reference images, on a dark blue flexible head unit with silver rims, filmed from slightly above so the heads fill the tall vertical frame.\nTight framing on the three heads only: the handle, the body, the PHILIPS wordmark and any text, numbers or degree markings stay completely out of frame.\nThe head unit gently tilts and flexes in different directions while the circular blades spin inside the heads. Clean futuristic deep-blue lighting with subtle light streaks. No on-screen text, no captions."
+    },
+    "uso": {
+      "shot": 3,
+      "duration": 5,
+      "refs": [
+        "jorge-bigode.png",
+        "frente.png",
+        "kit.png"
+      ],
+      "prompt": "Vertical 9:16, single continuous shot, no cuts.\nThe man from the portrait reference, with only a mustache and an otherwise clean-shaven face, wearing a grey sweater, in a bathroom with green tiles, shaves with the rotary electric shaver shown in the product reference images.\nCamera: close side view, three-quarter profile, showing his right cheek, jawline and neck.\nGrip and contact: his right hand holds the handle from below and from the side; the round metal surfaces of the three shaving heads are pressed flat against the skin of his cheek and jaw and are hidden from the camera; the camera sees only the dark blue back of the head unit and the handle.\nMotion: slow small circular strokes over the cheek, along the jawline and down the neck, leaving the skin perfectly smooth. The mustache stays full and untouched.\nEnding (last second): he lowers the shaver, turns to look at himself in the mirror and raises his eyebrows with a satisfied, confident expression.\nRealistic hand, skin and grip physics, soft natural light. No on-screen text, no captions."
+    },
+    "transicao": {
+      "shot": 3,
+      "duration": 8,
+      "refs": [
+        "modelo-barbudo.png",
+        "jorge-bigode.png",
+        "pegada.png",
+        "frente.png"
+      ],
+      "prompt": "Vertical 9:16, one continuous shot with a single in-camera transition, no hard cuts.\nPart 1 (0-2s): in a bathroom with green tiles, the man from the bearded portrait reference (full beard, grey sweater) looks at his reflection in the mirror, calm.\nTransition (2-3.5s): the camera smoothly rotates 180 degrees around a vertical axis lying in the plane of the mirror, as if passing through the mirror to the other side; as it turns, the scene resolves into the same man now clean-shaven except for a mustache.\nPart 2 (3.5-7s): he is now exactly the man from the mustache portrait reference: only a full mustache, the rest of the face smooth. Close three-quarter side view of his right cheek and jaw. He shaves with the rotary electric shaver from the product reference images (dark grey body, dark blue head unit, PHILIPS). Use the grip reference photo only for how it is held: the round head unit lies flat on the cheek like a disc resting on the skin, all three shaving heads touching the skin at the same time; the camera sees only the dark back of the head unit and the handle running down to his hand, which holds it from below. Never the side or the edge of the head against the skin. Small slow circles over the cheek and along the jaw, leaving the skin smooth; the mustache stays untouched.\nEnding (7-8s): he lowers the shaver, looks at himself in the mirror and clearly raises both eyebrows in a playful, satisfied way, with a slight smile.\nRealistic hand, skin and grip physics, soft natural light. No on-screen text, no captions."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Philips Walita Série 7000, com SkinIQ. O segredo? Cabeça flexível 360-D e lâminas que cortam em todas as direções. Pele lisa, num barbear rente.",
+    "musicVolume": 0.18
+  },
+  "clips": {
+    "barbear_perfil": {
+      "first": "../_shared/jorge/quadro-2-9x16.png",
+      "last": "../_shared/jorge/quadro-4-9x16.png",
+      "duration": 4,
+      "prompt": "Side profile close-up, the camera stays almost static. The man keeps shaving: the round head unit of the shaver stays lying flat against his skin like a disc the whole time, he slowly glides it from his cheek and jawline down to his neck with small smooth movements, his hand holding the handle from below. The skin behind it is smooth. His mustache is untouched. Realistic hand, skin and grip physics, steady natural light. No text."
+    },
+    "final_sobrancelha": {
+      "first": "../_shared/jorge/quadro-5-9x16.png",
+      "duration": 3,
+      "prompt": "Front view, camera almost static. The man looks at the camera with his chin raised, the round head unit of the shaver resting flat against his neck. He slowly lowers the shaver away from his neck, his smooth neck visible, then looks at himself and clearly raises both eyebrows in a playful, satisfied, confident way with a slight smile. Mustache untouched. Realistic skin and hand physics, steady natural light. No text."
+    },
+    "transicao_porta_giratoria": {
+      "first": "../_shared/jorge/jorge-barbudo-espelho-video.png",
+      "last": "../_shared/jorge/quadro-2-9x16.png",
+      "duration": 4,
+      "prompt": "Locked-off static camera, it never moves. The whole picture, the bearded man in the bathroom mirror, is a single thin flat vertical mirror panel filling the frame, standing like a revolving door.\nThe panel spins exactly once, 180 degrees, around its own central vertical axis, like a revolving door or a flipping card: the left half swings away from the camera and the right half swings toward it. At the halfway point the panel is edge-on and becomes just a thin vertical line in the center of the frame, then it keeps turning until its back face faces the camera.\nThe back face of the panel is the other side of the mirror: it shows the same man, now clean-shaven except for a full mustache, in side profile in the same bathroom, already shaving with the rotary electric shaver whose round head unit lies flat on his cheek like a disc.\nNo camera movement, no rolling, nothing upside down, the vertical lines of the tiles stay vertical at all times. Realistic, steady natural light. No text."
+    }
+  }
+}

@@ -13,3 +13,4 @@ products/*/cache/
 *.mp3
 *.mp4
 *.wav
+products/_shared/
