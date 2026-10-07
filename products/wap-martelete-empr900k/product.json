@@ -1,0 +1,33 @@
+{
+  "name": "Wap Martelete EMPR 900K",
+  "title": "Wap Empr 900k Martelete Sds Plus Com Seletor Reverso 900 W 127V",
+  "images": [
+    { "file": "frente.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_717238-MLA99472525342_112025-F.webp" },
+    { "file": "lado.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_800792-MLU73119878823_112023-F.webp" },
+    { "file": "talhadeira.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_618729-MLU73038029564_112023-F.webp" },
+    { "file": "mandril.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_757626-MLU75357544243_032024-F.webp" },
+    { "file": "maleta.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_953412-MLU73119823181_112023-F.webp" },
+    { "file": "pose-maos-1.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_713892-MLU73119878795_112023-F.webp" },
+    { "file": "pose-maos-2.png", "source": "https://http2.mlstatic.com/D_NQ_NP_2X_723673-MLU73119793843_112023-F.webp" }
+  ],
+  "video": {
+    "model": "wan",
+    "duration": 10,
+    "refs": ["frente.png", "lado.png", "talhadeira.png", "mandril.png", "maleta.png"],
+    "prompt": "Vertical 9:16 product commercial for the rotary hammer drill shown in the reference images.\nKeep the product exactly as in the references: a yellow and black SDS Plus rotary hammer drill with a yellow rear housing and handle, a black front barrel, a thin metal depth rod along the side, an orange function selector knob, an orange lock ring at the chuck, a black side handle with a dotted grip and a black power cord. Do not add or change parts, no text on the product other than the small Wap logo shown in the references.\nShot 1 (0-3s): the rotary hammer drill resting on a clean light-grey studio surface, slowly orbiting camera, soft studio light.\nShot 2 (3-6s): extreme macro gliding along the orange function selector knob and the metal chuck, shallow depth of field.\nShot 3 (6-10s): top-down view of the open black carrying case with the rotary hammer drill and its accessories inside, slow camera glide. No hands, no people.\nNo on-screen text, no captions, no subtitles."
+  },
+  "clips": {
+    "jorge_martelete": {
+      "first": "refs/jorge_pose_2_olhar_2.png",
+      "duration": 8,
+      "prompt": "The bearded man, wearing clear safety glasses, black work gloves and a dark grey t-shirt, stands facing the exposed brick wall and holds the yellow and black rotary hammer drill horizontally at chest height with both hands, exactly as in the first frame: the right hand on the rear handle, the left hand on the black side handle, the tip of the drill bit pressed against the brick wall at exactly 90 degrees to the wall, the tool horizontal and perpendicular to the wall, seen from its side. For the first five seconds he leans in and presses the drill steadily and firmly into the wall in one continuous controlled motion, the bit sinking slowly into the brick, his eyes fixed on the tip of the bit, concentrated. Then, in the last three seconds, he smoothly pulls the drill back from the wall and lets it hang down in his right hand, pushes the safety glasses up onto his forehead with his other gloved hand, looks at the camera and clearly raises both eyebrows with a satisfied slight smile. The black power cord trails down to the floor. Camera almost static, a very slow gentle push-in. His face, hair and full beard stay exactly the same all the time. Natural, candid, unretouched look: visible skin texture and pores, a few flyaway hairs, not a polished render. Realistic hand and tool physics. No text."
+    }
+  },
+  "audio": {
+    "voiceId": "hpp4J3VqNfWAUOO0d1Us",
+    "voiceName": "Bella",
+    "script": "Martelete Wap de 900 watts, 127 volts, mandril SDS Plus, seletor de funções e reverso. Acompanha maleta, três brocas e talhadeira.",
+    "pronunciations": { "Wap": "Uap", "SDS": "ésse dê ésse" },
+    "musicVolume": 0.18
+  }
+}

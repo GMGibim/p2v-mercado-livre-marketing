@@ -20,7 +20,8 @@ export type Product = {
   video: ShotSpec;
   reshoots?: Record<string, ShotSpec & { shot: number }>;
   clips?: Record<string, ClipSpec>;
-  audio?: { voiceId: string; voiceName: string; script: string; musicVolume?: number };
+  // pronunciations: written word -> how the voice should say it (e.g. { "Wap": "Uap" }); captions keep the written word.
+  audio?: { voiceId: string; voiceName: string; script: string; musicVolume?: number; pronunciations?: Record<string, string> };
 };
 
 export const MODELS = {

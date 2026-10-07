@@ -54,6 +54,16 @@ O que aconteceu em cada produto e qual regra saiu dali. As regras ficam só no `
 - Um recorte de revisão mal posicionado mostrou só a borda do aparelho → **V1**.
 - Custo ≈ US$ 2,2–3,1.
 
+## 6. Wap Martelete EMPR 900K
+
+- O infográfico do anúncio (900 W, 3 J, seletor, "100% rolamentada", mandril SDS Plus) serviu só como fonte de alegações, por ter muito texto → **R1, A1**. A descrição colada pelo usuário confirmou o resto: 127 V, seletor de reverso, maleta, 3 brocas, talhadeira → **A1** (fala só com isso).
+- As fotos de uso da loja (mãos com luvas e braços tatuados furando tijolo, sem rosto) viraram referência de **pegada** → **P6, R2**. O quadro do Jorge saiu bom na primeira rodada, gerado com retrato + quadros aprovados + a foto de pegada + o produto → modelo **T4**.
+- Ferramenta de impacto exige uso seguro: óculos e luvas. Os óculos escondem a sobrancelha, então no final ele os levanta para a testa → **P6**.
+- O quadro escolhido pelo usuário teve o olhar ajustado por edição, usando o outro quadro como referência do olhar → **J6**, modelo **T5**.
+- A marca "Wap" e a sigla "SDS" precisam de pronúncia ("Uap", "ésse dê ésse"), e a legenda deve mostrar a grafia real; foi criado `audio.pronunciations` → **A5**. A música padrão passou a ser a kulakovka.
+- No vídeo do produto o martelete aparece apoiado nas duas empunhaduras, como um tripé; ficou aceitável. A broca encosta na parede mas não parece entrar no tijolo: só vendo o vídeo rodando.
+- Custo ≈ US$ 1,6–2,0 (Wan US$ 0,84 + clipe de 8 s + 4 imagens).
+
 ## Ambiente e técnico
 
 | Situação | O que fazer |
@@ -67,4 +77,5 @@ O que aconteceu em cada produto e qual regra saiu dali. As regras ficam só no `
 | Legenda no ffmpeg quebrava com caminhos do Windows | Caminhos com `/` e slug sem espaços (o `.ass` vai dentro do filtro). |
 | `ffmpeg drawtext` causou segfault (Fontconfig) no Windows | Não usar `drawtext`; para tempos, use a legenda gerada. |
 | `npm run refs` falhou com "fetch failed" uma vez | Instabilidade da rede ou do CDN: rode de novo. |
+| Um comando pago disparado com `&` dentro de uma execução em segundo plano: a ferramenta avisa "concluído" na hora, mas o processo continua e o log fica parado na linha de custo | Não rode de novo (cobraria duas vezes): espere e confira o arquivo de log e a pasta `out/`. Prefira disparar o comando em segundo plano sem `&`. |
 | A verificação de segurança do ambiente do agente bloqueou o terminal várias vezes seguidas | Falha passageira do ambiente. Faça o que não depende de comando (editar `product.json`), tente de novo e, se persistir, entregue os comandos prontos ao usuário. |

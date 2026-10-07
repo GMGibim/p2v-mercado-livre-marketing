@@ -73,10 +73,11 @@ Produtos feitos até aqui (custo aproximado, com tentativas):
 | [Philips OneBlade QP220](products/philips-oneblade-qp220/product.json) | produto de reposição, troca da peça | ~US$ 3,2–3,8 |
 | [Mondial Climatizador CL-03](products/mondial-climatizador/product.json) | cena em casa, clipe único de 8 s | ~US$ 3,4–5,2 |
 | [Philips depilador rosa](products/philips-depilador-rosa/product.json) | pessoa nova, quadro base do usuário | ~US$ 2,2–3,1 |
+| [Wap Martelete EMPR 900K](products/wap-martelete-empr900k/product.json) | ferramenta com EPI, pronúncia da marca | ~US$ 1,6–2,0 |
 
 ## Pessoa fixa
 
-`products/_shared/` (fora do git) guarda os retratos e quadros do "Jorge Sérgio", o modelo que aparece nos anúncios (variantes barbudo e só de bigode), e as músicas em `_shared/musica/`.
+`products/_shared/` (fora do git) guarda os retratos e quadros do "Jorge Sérgio", o modelo que aparece nos anúncios (variantes barbudo e só de bigode), da "Mara", a modelo loira (`_shared/mara/`), e as músicas em `_shared/musica/`. A música padrão do `npm run audio` é a **kulakovka**.
 
 ## Documentação
 

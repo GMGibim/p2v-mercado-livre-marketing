@@ -138,8 +138,24 @@ function assTime(s: number): string {
   return `${h}:${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}.${String(cs % 100).padStart(2, "0")}`;
 }
 
-export function captionsAss(a: Alignment, delay: number): string {
-  const ls = lines(words(a));
+export type DisplayToken = { text: string; count: number };
+
+// Regroups the spoken words under the written tokens (e.g. "SDS" spoken as "ésse dê ésse"), so captions show the written text.
+function regroup(spoken: Word[], display: DisplayToken[]): Word[] {
+  const out: Word[] = [];
+  let i = 0;
+  for (const t of display) {
+    const part = spoken.slice(i, i + t.count);
+    i += t.count;
+    if (!part.length) break;
+    out.push({ text: t.text, start: part[0].start, end: part[part.length - 1].end });
+  }
+  return out;
+}
+
+export function captionsAss(a: Alignment, delay: number, display?: DisplayToken[]): string {
+  const spoken = words(a);
+  const ls = lines(display ? regroup(spoken, display) : spoken);
   // Each line stays until the next one starts, so captions don't flicker between words.
   const events = ls.map((l, i) => {
     const end = (i + 1 < ls.length ? ls[i + 1].start : l.end + 0.4) + delay;

@@ -71,6 +71,17 @@ Scene: <cenário, luz>. The man <pose detalhada>, wearing <roupa>.
 Natural, candid, unretouched look: visible skin texture and pores, slight natural asymmetry, a few flyaway hairs, not a polished render, not airbrushed.
 ```
 
+## T5 — Ajustar só o olhar e a posição da cabeça (J6)
+
+Image 1 é o quadro escolhido; image 2 é o quadro cujo olhar é o desejado.
+
+```
+Edit image 1. Keep absolutely everything the same: the person's identity, hair, <barba>, <acessórios, ex.: safety glasses>, gloves, clothes, the <cenário>, the <produto> and its exact position, his hands, the framing and the light.
+Only change his gaze and head pose, matching the man in image 2: his head is turned in three-quarter profile toward <alvo>, his eyes are <descrição, ex.: narrowed behind the safety glasses> and fixed on <alvo exato do olhar, ex.: the tip of the drill bit where it touches the wall>, <expressão, ex.: a serious, intense, concentrated expression with slightly furrowed brows>. Do not copy anything else from image 2 (not hair, clothes, wall or tool). Photorealistic, natural skin texture.
+```
+
+Gere 2 variações e mostre ao usuário.
+
 ## Clipe de movimento (Kling, `clips`)
 
 Estrutura que funcionou nos `prompt` de `clips`:
